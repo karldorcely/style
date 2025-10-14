@@ -458,17 +458,25 @@ body {
   line-height: 1.6;
 }
 
+.why-intro strong {
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent) 50%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
 .why-movement {
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   line-height: 1.7;
 }
 
 .why-statement {
   font-size: 1.6rem;
   color: var(--accent);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   line-height: 1.5;
 }
 
@@ -515,9 +523,30 @@ body {
 
 .branches-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-top: 3rem;
+  justify-items: center;
+}
+
+@media (min-width: 1200px) {
+  .branches-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Handle centering for odd number of cards on last row */
+.branch-card:nth-child(5) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 1rem);
+  justify-self: center;
+}
+
+@media (min-width: 1200px) {
+  .branch-card:nth-child(5) {
+    grid-column: 2 / 3;
+    max-width: none;
+  }
 }
 
 .branch-card {
@@ -532,6 +561,10 @@ body {
   overflow: hidden;
   will-change: transform, box-shadow, border-color;
   transform: translateZ(0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
 }
 
 /* Sponsor card specific styling with background image */
@@ -687,7 +720,8 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 2rem;
+  margin-bottom: auto;
+  flex-grow: 1;
 }
 
 .learn-more-btn {
@@ -699,6 +733,24 @@ body {
   font-size: 0.9rem;
   cursor: default;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.partner-link {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: white !important;
+  border: none;
+}
+
+.partner-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(142, 80, 255, 0.3);
+  background: linear-gradient(135deg, #9d5cff 0%, #ff7ba8 100%);
 }
 
 /* EXPERIENCE SECTION */
@@ -1096,6 +1148,8 @@ input[type="submit"]:active {
   transform: translateY(0);
 }
 
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .signature {
@@ -1141,7 +1195,11 @@ input[type="submit"]:active {
   .branches-grid {
     grid-template-columns: 1fr;
   }
-  
+
+  .branch-card {
+    height: 420px;
+  }
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1196,8 +1254,9 @@ input[type="submit"]:active {
   
   .branch-card {
     padding: 2rem 1.5rem;
+    height: 400px;
   }
-  
+
   #form-header {
     padding: 1rem;
   }
@@ -1215,4 +1274,3 @@ input[type="submit"]:active {
     font-size: 0.95rem;
   }
 }
-
