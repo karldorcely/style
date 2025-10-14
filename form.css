@@ -489,13 +489,14 @@ body {
 }
 
 .why-conclusion {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
 .why-conclusion p {
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 
