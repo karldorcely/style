@@ -1548,22 +1548,127 @@ input[type="submit"]:active {
   box-shadow: 0 10px 30px rgba(142, 80, 255, 0.4);
 }
 
-/* Responsive Modal */
+/* CSS-ONLY DROPDOWN SYSTEM */
+.branch-card {
+  position: relative;
+  overflow: visible;
+}
+
+.branch-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.branch-card:hover::after {
+  background: rgba(142, 80, 255, 0.1);
+}
+
+/* Dropdown Content */
+.branch-card::before {
+  content: attr(data-info);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, 
+    rgba(13, 13, 15, 0.98) 0%, 
+    rgba(26, 10, 46, 0.98) 50%, 
+    rgba(22, 33, 62, 0.98) 100%
+  );
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 24px 24px;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 10;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 100px rgba(142, 80, 255, 0.2);
+  white-space: pre-line;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.branch-card:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Academy Card Content */
+.academy-card::before {
+  content: "🎓 WRK Academy\A\AComprehensive courses and workshops designed by industry leaders. Master entrepreneurship, digital marketing, leadership, and innovation.\A\A✨ What's Included:\A• Expert-led masterclasses and workshops\A• Interactive online courses with certifications\A• Live Q&A sessions with industry leaders\A• Exclusive learning materials and resources\A• Peer-to-peer learning communities\A• Career advancement opportunities\A\A💰 Available Tiers:\AStarter - Free Access\APro - $99/month\AElite - $299/month\ACore - $599/month\APrime - $999/month\ABlack - Invitation Only";
+}
+
+/* Creator Card Content */
+.creator-card::before {
+  content: "🎨 Creators Circle\A\AConnect with like-minded creators in an exclusive community designed for collaboration and growth. Share ideas, work on projects together.\A\A✨ What's Included:\A• Private creator community access\A• Collaboration matching system\A• Project showcase opportunities\A• Creative challenges and competitions\A• Skill-sharing workshops\A• Brand partnership opportunities\A\A💰 Available Tiers:\AStarter - Free Access\APro - $149/month\AElite - $399/month\ACore - $799/month\APrime - $1299/month\ABlack - Invitation Only";
+}
+
+/* Founder Card Content */
+.founder-card::before {
+  content: "🚀 Founders\A\AElite community for serious entrepreneurs. Access mentorship, funding opportunities, and strategic partnerships that can transform your business trajectory.\A\A✨ What's Included:\A• Mentor matching with successful founders\A• Investor introduction programs\A• Strategic partnership facilitation\A• Exclusive founder-only events\A• Due diligence support\A• Exit strategy guidance\A\A💰 Available Tiers:\APro - $499/month\AElite - $999/month\ACore - $1999/month\APrime - $3999/month\ABlack - Invitation Only";
+}
+
+/* Pulse Card Content */
+.pulse-card::before {
+  content: "📰 The Pulse\A\AStay ahead with our curated newsletter featuring industry insights, trends, and exclusive member updates. Get the information that matters delivered directly.\A\A✨ What's Included:\A• Weekly industry trend analysis\A• Exclusive member spotlights\A• Early access to WRK events\A• Investment and opportunity alerts\A• Expert commentary and insights\A• Personalized content recommendations\A\A💰 Available Tiers:\AFree - Basic Newsletter\APro - $49/month\APremium - $149/month";
+}
+
+/* Sponsor Card Content */
+.sponsor-card::before {
+  content: "🤝 Sponsors & Partners\A\APartner with brands and innovators building the next generation. Premium sponsorship opportunities with co-marketing benefits and direct access to our community.\A\A✨ What's Included:\A• Brand exposure to premium audience\A• Co-marketing campaign opportunities\A• Event sponsorship packages\A• Community partnership programs\A• Custom activation opportunities\A• ROI tracking and analytics\A\A💰 Available Tiers:\ABronze - $25,000\ASilver - $50,000\AGold - $100,000\APlatinum - $250,000\ADiamond - Custom";
+}
+
+/* Hover Indicator */
+.branch-card:hover .learn-more-btn {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent) 100%);
+}
+
+/* Ensure dropdowns appear above other cards */
+.branch-card:hover {
+  z-index: 100;
+}
+
+/* Responsive Dropdown */
 @media (max-width: 768px) {
-  .modal-content {
-    padding: 2rem 1.5rem;
-    max-width: 95%;
-  }
-  
-  .modal-title {
-    font-size: 1.5rem;
-  }
-  
-  .tier-grid {
-    grid-template-columns: 1fr 1fr;
+  .branch-card::before {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    max-height: 300px;
   }
 }
 
+@media (max-width: 600px) {
+  .branch-card::before {
+    padding: 1rem;
+    font-size: 0.85rem;
+    left: -1rem;
+    right: -1rem;
+    max-height: 250px;
+  }
+}
+
+/* ========================================================================= */
+/* MAIN CATEGORIES SECTION - START                                          */
+/* Big Floating Shining Cards for WRK Academy and Creators Circle          */
+/* Includes: Floating animations, shine effects, tier pricing cards         */
+/* ========================================================================= */
 .main-categories-section {
   background: linear-gradient(135deg, rgba(142, 80, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
   padding: 8rem 0;
@@ -1890,3 +1995,7 @@ input[type="submit"]:active {
     font-size: 3rem;
   }
 }
+
+/* ========================================================================= */
+/* MAIN CATEGORIES SECTION - END                                            */
+/* ========================================================================= */
