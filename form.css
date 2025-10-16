@@ -1,17 +1,17 @@
 :root {
-  --bg-dark: #0d0d0f;
+  --bg-dark: #000000;
   --bg-light: #000000;
   --text-light: #f5f5f7;
-  --text-dark: #8d50ffcc;
-  --accent: #8e50ff;
-  --accent-secondary: #ff6b9d;
-  --accent-glow: rgba(142, 80, 255, 0.3);
-  --input-bg: #1f1f23;
-  --input-border: #38383f;
-  --input-focus: #8e50ff;
+  --text-dark: #4a2973;
+  --accent: #5c3085;
+  --accent-secondary: #7a4099;
+  --accent-glow: rgba(92, 48, 133, 0.2);
+  --input-bg: #0a0a0a;
+  --input-border: #1a1a1a;
+  --input-focus: #5c3085;
   --radius: 0.75rem;
   --transition: 0.25s ease;
-  --hero-gradient: linear-gradient(135deg, #0d0d0f 0%, #1a0a2e 50%, #16213e 100%);
+  --hero-gradient: #000000;
 }
 
 * {
@@ -57,7 +57,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at center, #1a0a2e 0%, #000000 70%);
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 70%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,13 +140,14 @@ body {
 .wrk-letters span {
   font-size: clamp(4rem, 10vw, 6rem);
   font-weight: 900;
-  background: linear-gradient(135deg, var(--accent), #ff6b9d, #45caff);
+  background: linear-gradient(135deg, #000000 0%, #333333 25%, #666666 50%, #333333 75%, #000000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: letterGlow 2s ease-in-out infinite alternate;
   line-height: 1;
   display: block;
+  filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.4)) drop-shadow(0 0 60px rgba(102, 51, 153, 0.2));
 }
 
 #intro-overlay.form-wrk .wrk-letters {
@@ -291,21 +292,28 @@ body {
   font-weight: 800;
   margin: 0 0 1rem 0;
   line-height: 1.1;
-  background: linear-gradient(135deg, #ffffff 0%, var(--accent) 50%, #ff6b9d 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent) 50%, var(--accent-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 20px rgba(92, 48, 133, 0.3);
 }
 
 .wrk-logo {
   display: inline-block;
   transform: scale(1);
   transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 30px var(--accent));
+  background: linear-gradient(135deg, #000000 0%, #333333 30%, #666666 60%, #333333 90%, #000000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px rgba(92, 48, 133, 0.4)) drop-shadow(0 0 80px rgba(92, 48, 133, 0.2));
+  position: relative;
 }
 
 .wrk-logo:hover {
   transform: scale(1.1) rotate(-2deg);
+  filter: drop-shadow(0 0 50px rgba(92, 48, 133, 0.5)) drop-shadow(0 0 100px rgba(92, 48, 133, 0.25));
 }
 
 .subtitle {
@@ -330,18 +338,18 @@ body {
 }
 
 .cta-button {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  background: linear-gradient(135deg, #000000 0%, #333333 30%, #666666 60%, #333333 90%, #000000 100%);
   border: none;
   padding: 1rem 2.5rem;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: 600;
-  color: white;
+  color: #f0f0f0;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 8px 32px rgba(0, 122, 255, 0.25);
+  box-shadow: 0 0 30px rgba(92, 48, 133, 0.4), 0 0 60px rgba(92, 48, 133, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -352,7 +360,8 @@ body {
 
 .cta-button:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 48px rgba(0, 122, 255, 0.35);
+  box-shadow: 0 0 40px rgba(92, 48, 133, 0.6), 0 0 80px rgba(92, 48, 133, 0.3), 0 12px 48px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 30%, #7a7a7a 60%, #4a4a4a 90%, #1a1a1a 100%);
 }
 
 .cta-button:active {
@@ -428,7 +437,7 @@ body {
 
 /* WHY WRK SECTION */
 .why-wrk-section {
-  background: linear-gradient(135deg, rgba(142, 80, 255, 0.1) 0%, rgba(255, 107, 157, 0.1) 100%);
+  background: #000000;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -789,16 +798,19 @@ body {
 }
 
 .learn-more-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, #1a0d26 0%, #3d2654 25%, #5c3085 50%, #3d2654 75%, #1a0d26 100%);
+  border: none;
+  color: #f0f0f0;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
   font-size: 0.9rem;
-  cursor: default;
+  cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   margin-top: auto;
   flex-shrink: 0;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(92, 48, 133, 0.4), 0 0 30px rgba(92, 48, 133, 0.2);
+  transition: all 0.3s ease;
 }
 
 .partner-link {
@@ -806,20 +818,21 @@ body {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
-  color: white !important;
+  background: linear-gradient(135deg, #000000 0%, #333333 30%, #666666 60%, #333333 90%, #000000 100%);
+  color: #f0f0f0 !important;
   border: none;
+  box-shadow: 0 0 15px rgba(92, 48, 133, 0.4), 0 0 30px rgba(92, 48, 133, 0.2);
 }
 
 .partner-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(142, 80, 255, 0.3);
-  background: linear-gradient(135deg, #9d5cff 0%, #ff7ba8 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 30%, #7a7a7a 60%, #4a4a4a 90%, #1a1a1a 100%);
+  box-shadow: 0 0 25px rgba(92, 48, 133, 0.5), 0 0 50px rgba(92, 48, 133, 0.2);
 }
 
 /* EXPERIENCE SECTION */
 .experience-section {
-  background: rgba(0, 0, 0, 0.3);
+  background: #000000;
 }
 
 .experience-section h2 {
@@ -949,18 +962,20 @@ body {
 
 .newsletter-btn {
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  background: linear-gradient(135deg, #000000 0%, #333333 30%, #666666 60%, #333333 90%, #000000 100%);
   border: none;
   border-radius: 8px;
-  color: white;
+  color: #f0f0f0;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(92, 48, 133, 0.4), 0 0 40px rgba(92, 48, 133, 0.2);
 }
 
 .newsletter-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 30%, #7a7a7a 60%, #4a4a4a 90%, #1a1a1a 100%);
+  box-shadow: 0 0 30px rgba(92, 48, 133, 0.6), 0 0 60px rgba(92, 48, 133, 0.3), 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .social-links {
@@ -995,7 +1010,7 @@ body {
 
 /* WAITLIST SECTION */
 #waitlist {
-  background: rgba(255, 255, 255, 0.05);
+  background: #000000;
   backdrop-filter: blur(20px);
 }
 
@@ -1189,8 +1204,8 @@ input[type="radio"] {
 
 /* Submit */
 input[type="submit"] {
-  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #000000 0%, #333333 30%, #666666 60%, #333333 90%, #000000 100%);
+  color: #f0f0f0;
   font-size: 1rem;
   font-weight: 600;
   padding: 1rem 2rem;
@@ -1199,13 +1214,13 @@ input[type="submit"] {
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   transition: all var(--transition);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 25px rgba(92, 48, 133, 0.4), 0 0 50px rgba(92, 48, 133, 0.2), 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 input[type="submit"]:hover {
-  background: linear-gradient(135deg, #2a2a2a 0%, #444444 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 30%, #7a7a7a 60%, #4a4a4a 90%, #1a1a1a 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 35px rgba(92, 48, 133, 0.6), 0 0 70px rgba(92, 48, 133, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 input[type="submit"]:active {
@@ -1530,22 +1545,24 @@ input[type="submit"]:active {
 }
 
 .modal-btn {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  background: linear-gradient(135deg, #000000 0%, #333333 30%, #666666 60%, #333333 90%, #000000 100%);
   border: none;
   padding: 1rem 2rem;
   border-radius: 25px;
-  color: white;
+  color: #f0f0f0;
   font-weight: 600;
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  box-shadow: 0 0 25px rgba(92, 48, 133, 0.4), 0 0 50px rgba(92, 48, 133, 0.2);
 }
 
 .modal-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(142, 80, 255, 0.4);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 30%, #7a7a7a 60%, #4a4a4a 90%, #1a1a1a 100%);
+  box-shadow: 0 0 35px rgba(92, 48, 133, 0.6), 0 0 70px rgba(92, 48, 133, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* CSS-ONLY DROPDOWN SYSTEM */
@@ -1637,7 +1654,8 @@ input[type="submit"]:active {
 /* Hover Indicator */
 .branch-card:hover .learn-more-btn {
   transform: translateY(-2px) scale(1.05);
-  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 30%, #7a7a7a 60%, #4a4a4a 90%, #1a1a1a 100%);
+  box-shadow: 0 0 25px rgba(92, 48, 133, 0.5), 0 0 50px rgba(92, 48, 133, 0.2);
 }
 
 /* Ensure dropdowns appear above other cards */
@@ -1670,7 +1688,7 @@ input[type="submit"]:active {
 /* Includes: Floating animations, shine effects, tier pricing cards         */
 /* ========================================================================= */
 .main-categories-section {
-  background: linear-gradient(135deg, rgba(142, 80, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+  background: #000000;
   padding: 12rem 0 8rem 0;
   position: relative;
   z-index: 50;
@@ -1901,8 +1919,8 @@ input[type="submit"]:active {
 }
 
 .main-card-btn {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
-  color: white;
+  background: linear-gradient(135deg, #000000 0%, #333333 30%, #666666 60%, #333333 90%, #000000 100%);
+  color: #f0f0f0;
   text-decoration: none;
   padding: 1rem 2.5rem;
   border-radius: 25px;
@@ -1910,14 +1928,15 @@ input[type="submit"]:active {
   font-size: 1rem;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(142, 80, 255, 0.3);
+  box-shadow: 0 0 30px rgba(92, 48, 133, 0.4), 0 0 60px rgba(92, 48, 133, 0.2), 0 10px 30px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
 }
 
 .main-card-btn:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(142, 80, 255, 0.4);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 30%, #7a7a7a 60%, #4a4a4a 90%, #1a1a1a 100%);
+  box-shadow: 0 0 40px rgba(92, 48, 133, 0.6), 0 0 80px rgba(92, 48, 133, 0.3), 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .main-card-btn::before {
