@@ -34,6 +34,9 @@ body {
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .container {
@@ -1286,6 +1289,18 @@ input[type="submit"]:active {
   
   .newsletter-signup {
     flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .newsletter-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .newsletter-btn {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
   }
 }
 
@@ -1341,8 +1356,14 @@ input[type="submit"]:active {
   }
   
   main#Form {
-    margin: 1rem 1rem 2rem;
-    padding: 3rem 2.5rem;
+    margin: 1rem 0.5rem 2rem;
+    padding: 2rem 1.5rem;
+    max-width: calc(100vw - 1rem);
+    box-sizing: border-box;
+  }
+  
+  #form-header {
+    padding: 1rem 0.5rem;
   }
   
   label {
@@ -1351,6 +1372,50 @@ input[type="submit"]:active {
   
   input, select, textarea {
     font-size: 0.95rem;
+    padding: 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .cta-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* Extra small devices (320px and below) */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  main#Form {
+    margin: 0.5rem 0.25rem 1rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .branch-card {
+    padding: 1.5rem 1rem;
+    height: 350px;
+  }
+  
+  .sponsor-card::before {
+    content: "🤝 Sponsors & Partners\A\APartner with brands building the next generation.\A\A✨ Included:\A• Brand exposure\A• Co-marketing\A• Events\A• Partnerships\A\A💰 Tiers: $25K - Custom";
+    font-size: 0.8rem;
   }
 }
 
@@ -1680,6 +1745,10 @@ input[type="submit"]:active {
     right: -1rem;
     max-height: 250px;
   }
+  
+  .sponsor-card::before {
+    content: "🤝 Sponsors & Partners\A\APartner with brands building the next generation. Premium sponsorship opportunities with co-marketing benefits.\A\A✨ What's Included:\A• Brand exposure\A• Co-marketing campaigns\A• Event sponsorship\A• Community partnerships\A\A💰 Tiers: Bronze $25K - Diamond Custom";
+  }
 }
 
 /* ========================================================================= */
@@ -2007,11 +2076,25 @@ input[type="submit"]:active {
 
 @media (max-width: 600px) {
   .main-cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
   }
   
   .main-card {
     padding: 1.5rem 1rem;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .main-categories-section {
+    padding: 4rem 0;
+  }
+  
+  .main-categories-section h2 {
+    font-size: 2rem;
+    padding: 0 1rem;
   }
   
   .main-card-icon {
