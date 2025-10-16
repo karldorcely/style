@@ -28,13 +28,21 @@ body {
   position: relative;
 }
 
+/* ========================================================================= */
+/* SCROLL OPTIMIZATION CHANGE #6: DISABLED CSS SCROLL-BEHAVIOR              */
+/* CHANGES: Changed from "smooth" to "auto" to prevent conflicts             */
+/* REASON: Eliminate double-smoothing conflicts with JavaScript scroll      */
+/* ========================================================================= */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Disable CSS scroll-behavior for faster JS control */
   scroll-padding-top: 2rem;
   overflow-x: hidden;
   width: 100%;
   box-sizing: border-box;
 }
+/* ========================================================================= */
+/* END SCROLL OPTIMIZATION CHANGE #6                                        */
+/* ========================================================================= */
 
 body {
   margin: 0;
@@ -1029,11 +1037,35 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* ========================================================================= */
+/* FORM CENTERING OPTIMIZATION CHANGE #10: ENHANCED WAITLIST SECTION        */
+/* CHANGES: Improved waitlist section layout for better form centering      */
+/* REASON: Ensure proper container behavior for form positioning            */
+/* ========================================================================= */
 /* WAITLIST SECTION */
 #waitlist {
   background: #000000;
   backdrop-filter: blur(20px);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
 }
+
+#waitlist .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ========================================================================= */
+/* END FORM CENTERING OPTIMIZATION CHANGE #10                              */
+/* ========================================================================= */
 
 /* Form Header styles */
 #form-header {
@@ -1068,11 +1100,16 @@ body {
   min-height: 100vh;
 }
 
+/* ========================================================================= */
+/* FORM CENTERING DEBUG FIX CHANGE #16: SIMPLIFIED FORM CENTERING          */
+/* CHANGES: Removed conflicting positioning, use only margin auto           */
+/* REASON: Conflicting left/transform and margin auto was breaking centering*/
+/* ========================================================================= */
 main#Form {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
   backdrop-filter: blur(20px);
   color: #ffffff;
-  margin: 1rem auto 4rem;
+  margin: 3rem auto 5rem !important;
   padding: 4rem 4rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
@@ -1083,9 +1120,14 @@ main#Form {
   overflow: hidden;
   transition: all 0.3s ease;
   box-sizing: border-box;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
 }
+/* ========================================================================= */
+/* END FORM CENTERING DEBUG FIX CHANGE #16                                 */
+/* ========================================================================= */
 
 /* Form shine effect - desktop only */
 @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
@@ -1108,14 +1150,22 @@ main#Form {
   }
 }
 
+/* ========================================================================= */
+/* FORM CENTERING DEBUG FIX CHANGE #18: UPDATED HOVER FOR NEW CENTERING    */
+/* CHANGES: Removed translateX(-50%) from hover to match new centering      */
+/* REASON: Hover effect must work with simplified margin-based centering    */
+/* ========================================================================= */
 /* Form hover effect - desktop only */
 @media (min-width: 769px) {
   main#Form:hover {
-    transform: translateX(-50%) translateY(-5px) scale(1.01);
+    transform: translateY(-5px) scale(1.01) !important;
     box-shadow: 0 0 50px rgba(92, 48, 133, 0.4), 0 0 100px rgba(92, 48, 133, 0.2), 0 25px 50px rgba(0, 0, 0, 0.25);
     border-color: rgba(92, 48, 133, 0.3);
   }
 }
+/* ========================================================================= */
+/* END FORM CENTERING DEBUG FIX CHANGE #18                                 */
+/* ========================================================================= */
 
 /* Form layout */
 form {
@@ -1280,6 +1330,11 @@ input[type="submit"]:active {
 
 
 /* Responsive */
+/* ========================================================================= */
+/* FORM CENTERING DEBUG FIX CHANGE #19: FIXED MOBILE FORM CENTERING        */
+/* CHANGES: Removed conflicting positioning from mobile styles              */
+/* REASON: Mobile styles were overriding simplified centering approach      */
+/* ========================================================================= */
 @media (max-width: 768px) {
   /* Disable heavy form effects on mobile for performance */
   main#Form {
@@ -1287,11 +1342,16 @@ input[type="submit"]:active {
     backdrop-filter: blur(10px) !important;
     max-width: 95% !important;
     margin: 2rem auto !important;
+    left: auto !important;
+    transform: none !important;
   }
   
   main#Form::before {
     display: none !important;
   }
+/* ========================================================================= */
+/* END FORM CENTERING DEBUG FIX CHANGE #19                                 */
+/* ========================================================================= */
   
   .signature {
     font-size: 2.5rem;
@@ -1377,6 +1437,11 @@ input[type="submit"]:active {
     padding: 0 0.5rem !important;
   }
   
+  /* ========================================================================= */
+  /* FORM CENTERING DEBUG FIX CHANGE #20: FIXED 600PX MOBILE FORM CENTERING  */
+  /* CHANGES: Removed left/transform positioning from 600px mobile styles    */
+  /* REASON: Conflicting positioning was preventing proper centering         */
+  /* ========================================================================= */
   main#Form {
     backdrop-filter: blur(5px) !important;
     max-width: calc(100vw - 2rem) !important;
@@ -1384,10 +1449,13 @@ input[type="submit"]:active {
     padding: 1.5rem !important;
     overflow: hidden !important;
     width: calc(100vw - 2rem) !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: auto !important;
+    transform: none !important;
     position: relative !important;
   }
+  /* ========================================================================= */
+  /* END FORM CENTERING DEBUG FIX CHANGE #20                                 */
+  /* ========================================================================= */
   
   .form-group input,
   .form-group select {
@@ -1445,18 +1513,26 @@ input[type="submit"]:active {
     padding: 1rem;
   }
   
+  /* ========================================================================= */
+  /* FORM CENTERING DEBUG FIX CHANGE #22: FIXED ANOTHER MOBILE FORM STYLE    */
+  /* CHANGES: Removed left/transform positioning from missed mobile style    */
+  /* REASON: Found another conflicting form positioning style                */
+  /* ========================================================================= */
   main#Form {
     margin: 1rem auto 2rem;
     padding: 2rem 1rem;
     max-width: calc(100vw - 2rem);
     width: calc(100vw - 2rem);
     box-sizing: border-box;
-    left: 50%;
-    transform: translateX(-50%);
+    left: auto !important;
+    transform: none !important;
     position: relative;
     animation: none;
     backdrop-filter: blur(10px);
   }
+  /* ========================================================================= */
+  /* END FORM CENTERING DEBUG FIX CHANGE #22                                 */
+  /* ========================================================================= */
   
   main#Form::before {
     display: none;
@@ -1501,18 +1577,26 @@ input[type="submit"]:active {
     padding: 0 0.5rem;
   }
   
+  /* ========================================================================= */
+  /* FORM CENTERING DEBUG FIX CHANGE #21: FIXED 320PX MOBILE FORM CENTERING  */
+  /* CHANGES: Removed left/transform positioning from 320px mobile styles    */
+  /* REASON: Conflicting positioning was preventing proper centering         */
+  /* ========================================================================= */
   main#Form {
     margin: 0.5rem auto 1rem;
     padding: 1.5rem 0.75rem;
     max-width: calc(100vw - 1rem);
     width: calc(100vw - 1rem);
     box-sizing: border-box;
-    left: 50%;
-    transform: translateX(-50%);
+    left: auto !important;
+    transform: none !important;
     position: relative;
     animation: none;
     backdrop-filter: blur(5px);
   }
+  /* ========================================================================= */
+  /* END FORM CENTERING DEBUG FIX CHANGE #21                                 */
+  /* ========================================================================= */
   
   main#Form::before {
     display: none;
@@ -2220,18 +2304,26 @@ input[type="submit"]:active {
 /* MAIN CATEGORIES SECTION - END                                            */
 /* ========================================================================= */
 
+/* ========================================================================= */
+/* FORM CENTERING DEBUG FIX CHANGE #17: UPDATED ANIMATIONS FOR NEW CENTERING*/
+/* CHANGES: Removed translateX(-50%) from animations since form uses margin  */
+/* REASON: Animations were conflicting with simplified centering approach    */
+/* ========================================================================= */
 /* FORM ANIMATIONS */
 @keyframes formFloat {
   0%, 100% {
-    transform: translateX(-50%) translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(0deg);
   }
   33% {
-    transform: translateX(-50%) translateY(-8px) rotate(0.5deg);
+    transform: translateY(-8px) rotate(0.5deg);
   }
   66% {
-    transform: translateX(-50%) translateY(-4px) rotate(-0.3deg);
+    transform: translateY(-4px) rotate(-0.3deg);
   }
 }
+/* ========================================================================= */
+/* END FORM CENTERING DEBUG FIX CHANGE #17                                 */
+/* ========================================================================= */
 
 @keyframes formShine {
   0% {
