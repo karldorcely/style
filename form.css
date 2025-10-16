@@ -18,6 +18,16 @@
   box-sizing: border-box;
 }
 
+/* Global overflow prevention for mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  position: relative;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
@@ -1071,30 +1081,40 @@ main#Form {
   max-width: 650px;
   position: relative;
   overflow: hidden;
-  animation: formFloat 6s ease-in-out infinite;
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Form shine effect */
-main#Form::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(92, 48, 133, 0.15), transparent);
-  transform: rotate(45deg);
-  animation: formShine 4s linear infinite;
-  pointer-events: none;
-  z-index: 1;
+/* Form shine effect - desktop only */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+  main#Form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(92, 48, 133, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: formShine 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  main#Form {
+    animation: formFloat 8s ease-in-out infinite;
+  }
 }
 
-/* Form hover effect */
-main#Form:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 0 60px rgba(92, 48, 133, 0.5), 0 0 120px rgba(92, 48, 133, 0.25), 0 30px 60px rgba(0, 0, 0, 0.3);
-  border-color: rgba(92, 48, 133, 0.4);
+/* Form hover effect - desktop only */
+@media (min-width: 769px) {
+  main#Form:hover {
+    transform: translateX(-50%) translateY(-5px) scale(1.01);
+    box-shadow: 0 0 50px rgba(92, 48, 133, 0.4), 0 0 100px rgba(92, 48, 133, 0.2), 0 25px 50px rgba(0, 0, 0, 0.25);
+    border-color: rgba(92, 48, 133, 0.3);
+  }
 }
 
 /* Form layout */
@@ -1261,6 +1281,18 @@ input[type="submit"]:active {
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* Disable heavy form effects on mobile for performance */
+  main#Form {
+    animation: none !important;
+    backdrop-filter: blur(10px) !important;
+    max-width: 95% !important;
+    margin: 2rem auto !important;
+  }
+  
+  main#Form::before {
+    display: none !important;
+  }
+  
   .signature {
     font-size: 2.5rem;
   }
@@ -1332,6 +1364,37 @@ input[type="submit"]:active {
 }
 
 @media (max-width: 600px) {
+  /* Additional mobile form optimizations */
+  #waitlist {
+    padding: 1rem 0.5rem !important;
+    overflow-x: hidden !important;
+  }
+  
+  #waitlist .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  main#Form {
+    backdrop-filter: blur(5px) !important;
+    max-width: calc(100vw - 2rem) !important;
+    margin: 1rem auto !important;
+    padding: 1.5rem !important;
+    overflow: hidden !important;
+    width: calc(100vw - 2rem) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: relative !important;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+  }
+  
   .signature {
     font-size: 2rem;
   }
@@ -1384,13 +1447,19 @@ input[type="submit"]:active {
   
   main#Form {
     margin: 1rem auto 2rem;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
     max-width: calc(100vw - 2rem);
     width: calc(100vw - 2rem);
     box-sizing: border-box;
     left: 50%;
     transform: translateX(-50%);
     position: relative;
+    animation: none;
+    backdrop-filter: blur(10px);
+  }
+  
+  main#Form::before {
+    display: none;
   }
   
   #form-header {
@@ -1403,9 +1472,11 @@ input[type="submit"]:active {
   
   input, select, textarea {
     font-size: 0.95rem;
-    padding: 0.75rem;
+    padding: 0.75rem 0.5rem;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
   }
   
   input[type="submit"] {
@@ -1432,13 +1503,19 @@ input[type="submit"]:active {
   
   main#Form {
     margin: 0.5rem auto 1rem;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0.75rem;
     max-width: calc(100vw - 1rem);
     width: calc(100vw - 1rem);
     box-sizing: border-box;
     left: 50%;
     transform: translateX(-50%);
     position: relative;
+    animation: none;
+    backdrop-filter: blur(5px);
+  }
+  
+  main#Form::before {
+    display: none;
   }
   
   .hero-title {
@@ -2146,13 +2223,13 @@ input[type="submit"]:active {
 /* FORM ANIMATIONS */
 @keyframes formFloat {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateX(-50%) translateY(0px) rotate(0deg);
   }
   33% {
-    transform: translateY(-8px) rotate(0.5deg);
+    transform: translateX(-50%) translateY(-8px) rotate(0.5deg);
   }
   66% {
-    transform: translateY(-4px) rotate(-0.3deg);
+    transform: translateX(-50%) translateY(-4px) rotate(-0.3deg);
   }
 }
 
@@ -2162,5 +2239,17 @@ input[type="submit"]:active {
   }
   100% {
     transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  main#Form {
+    animation: none !important;
+  }
+  
+  main#Form::before {
+    animation: none !important;
+    display: none !important;
   }
 }
