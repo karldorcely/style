@@ -1,4 +1,31 @@
 /* --- OVERRIDE: Always stack vertically and align left for .radio-group --- */
+@media (max-width: 600px) {
+  .radio-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.2em !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .radio-group label {
+    min-width: 60px !important;
+    margin-bottom: 0.1em !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .radio-group input[type="radio"] {
+    margin: 0.1em auto 0.1em auto !important;
+    display: block !important;
+  }
+}
+/* Desktop: keep left-aligned vertical stack */
 .radio-group {
   display: flex !important;
   flex-direction: column !important;
@@ -6,7 +33,7 @@
   justify-content: flex-start !important;
   gap: 0.2em !important;
   width: 100% !important;
-  margin-left: 40px !important; /* Adjust this value for precise horizontal position */
+  margin-left: 40px !important;
   margin-right: 0 !important;
 }
 .radio-group label {
