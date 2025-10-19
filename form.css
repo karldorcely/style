@@ -1,3 +1,178 @@
+@media (max-width: 600px) {
+  .form-yesno-question, .form-yesno-label, .form-yesno-input {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    margin: 0.7rem auto !important;
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    padding: 0.5rem 0.2rem !important;
+  }
+  .form-yesno-label {
+    margin-bottom: 0.5rem !important;
+  }
+  .form-yesno-input {
+    margin: 0.3rem 0 !important;
+    font-size: 1.1rem !important;
+  }
+}
+@media (max-width: 900px) {
+  .why-wrk-content {
+    max-width: 70vw !important;
+    width: 70vw !important;
+    margin: 0 auto !important;
+    padding: 1.2rem 1rem !important;
+    border-radius: 1.2em !important;
+    background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,1) 100%) !important;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12), 0 1.5px 4px 0 rgba(184,133,13,0.05) !important;
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  .why-wrk-content p, .why-intro {
+    font-size: 1.05rem !important;
+    padding: 0.8rem 0.5rem !important;
+    margin: 0.5rem auto !important;
+    max-width: 95vw !important;
+    border-radius: 1em !important;
+    display: block !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+    background: linear-gradient(135deg, #f4f1e8 0%, #d49d1a 50%, #b8850d 100%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+  }
+  .why-wrk-section .container {
+    min-height: 220px !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .profit-phone-img {
+    width: 38vw !important;
+    left: 25% !important;
+    right: auto !important;
+    transform: translateX(-50%) scale(1.08) !important;
+    top: 0 !important;
+    position: relative !important;
+    z-index: 0;
+    height: auto !important;
+    max-width: 60vw !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .profit-title {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 95% !important;
+    text-align: center !important;
+    z-index: 1;
+    font-size: 2rem !important;
+    margin: 0.7rem auto 1.2rem auto !important;
+    display: block !important;
+  }
+}
+@media (max-width: 600px) {
+  .why-wrk-content {
+    max-width: 98vw !important;
+    width: 98vw !important;
+    margin: 0 auto !important;
+    padding: 1.2rem 0.7rem !important;
+    border-radius: 1.2em !important;
+    background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,1) 100%) !important;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12), 0 1.5px 4px 0 rgba(184,133,13,0.05) !important;
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  .why-wrk-content p, .why-intro {
+    font-size: 1rem !important;
+    padding: 0.8rem 0.3rem !important;
+    margin: 0.5rem auto !important;
+    max-width: 95vw !important;
+    border-radius: 1em !important;
+    display: block !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+    background: linear-gradient(135deg, #f4f1e8 0%, #d49d1a 50%, #b8850d 100%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+  }
+}
+@media (max-width: 600px) {
+  .why-wrk-content {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 0.7rem 0.5rem !important;
+    font-size: 0.98rem !important;
+  }
+  .why-intro {
+    font-size: 1rem !important;
+    padding: 0.8rem 0.7rem !important;
+    margin: 0.5rem auto !important;
+    max-width: 95vw !important;
+    border-radius: 1em !important;
+    background: rgba(20,20,20,0.92) !important;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12), 0 1.5px 4px 0 rgba(184,133,13,0.05) !important;
+    color: #f5f5f7 !important;
+    display: block !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+  }
+}
+/* Remove bounce/elastic scroll effect on mobile */
+html, body {
+  overscroll-behavior: none;
+}
+/* Mobile styles for why-wrk section */
+@media (max-width: 600px) {
+  .why-wrk-section .container {
+    min-height: 260px !important;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .profit-phone-img {
+    width: 65vw !important;
+    left: 40% !important;
+    right: auto !important;
+    transform: translateX(-50%) scale(1.05) !important;
+    top: 0 !important;
+    position: relative !important;
+    z-index: 0;
+    height: auto !important;
+    max-width: 100vw !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .profit-title {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 90% !important;
+    text-align: center !important;
+    z-index: 1;
+    font-size: 1.3rem !important;
+    margin: 0.5rem auto 1.2rem auto !important;
+    display: block !important;
+  }
+}
 /* Large networking circle in hero section */
 .networking-circle {
   position: absolute;
@@ -981,7 +1156,7 @@ body {
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   background: var(--title-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
