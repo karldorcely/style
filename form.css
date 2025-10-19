@@ -1,3 +1,40 @@
+/* Ensure radio buttons display side by side and are visible on all screens */
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2.5em;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.radio-group label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.1em;
+  margin-bottom: 0;
+  gap: 0.3em;
+}
+.radio-group input[type="radio"] {
+  margin: 0 auto;
+  transform: scale(1.2);
+  display: block;
+}
+@media (max-width: 600px) {
+  .radio-group {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5em;
+    align-items: center;
+  }
+  .radio-group label {
+    font-size: 1.1em;
+    gap: 0.3em;
+  }
+  .radio-group input[type="radio"] {
+    transform: scale(1.2);
+  }
+}
 @media (max-width: 600px) {
   .radio-group {
     display: flex;
