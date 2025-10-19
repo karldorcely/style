@@ -1,3 +1,17 @@
+@media (max-width: 500px) and (orientation: portrait) {
+  .radio-group {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1em !important;
+  }
+  .radio-group label {
+    min-width: 80px;
+    margin-bottom: 0.5em;
+  }
+  .radio-group input[type="radio"] {
+    margin: 0.3em auto;
+  }
+}
 /* iOS/Safari radio button fix */
 .radio-group input[type="radio"] {
   -webkit-appearance: none;
