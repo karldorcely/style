@@ -1,190 +1,55 @@
-@media (max-width: 600px) and (orientation: portrait) {
-  .radio-group {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 1.5em !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    flex-wrap: wrap !important;
-  }
-  .radio-group label {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-width: 60px !important;
-    margin-bottom: 0.1em !important;
-    text-align: center !important;
-    font-size: 1.1em !important;
-    gap: 0.2em !important;
-    width: auto !important;
-  }
-  .radio-group input[type="radio"] {
-    margin: 0.1em auto 0.1em auto !important;
-    display: block !important;
-    vertical-align: middle !important;
-  }
-}
-/* --- OVERRIDE: Always stack vertically and align left for .radio-group --- */
-@media (max-width: 600px) {
-  .radio-group {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.2em !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  .radio-group label {
-    min-width: 60px !important;
-    margin-bottom: 0.1em !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-  .radio-group input[type="radio"] {
-    margin: 0.1em auto 0.1em auto !important;
-    display: block !important;
-  }
-}
-/* Desktop: keep left-aligned vertical stack */
-.radio-group {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-  gap: 0.2em !important;
-  width: 100% !important;
-  margin-left: 40px !important;
-  margin-right: 0 !important;
-}
-.radio-group label {
-  min-width: 60px !important;
-  margin-bottom: 0.1em !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-  width: 100% !important;
-}
-.radio-group input[type="radio"] {
-  margin: 0.1em 0 0.1em 0 !important;
-  display: block !important;
-}
-/* iOS/Safari radio button fix */
-.radio-group input[type="radio"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1.2em;
-  height: 1.2em;
-  border-radius: 50%;
-  border: 2px solid #d49d1a;
-  background: #fff;
-  outline: none;
-  margin: 0 auto;
-  display: block;
-  position: relative;
-}
-.radio-group input[type="radio"]:checked {
-  background: #d49d1a;
-}
-.radio-group label {
-  min-width: 60px;
-  text-align: center;
-}
-.radio-group {
-  overflow: visible;
-}
-/* Ensure radio buttons display side by side and are visible on all screens */
+
+/* --- RADIO BUTTONS CLEAN, RESPONSIVE --- */
 .radio-group {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 2.5em;
   align-items: center;
-  margin-bottom: 1em;
+  gap: 2em;
+  width: 100%;
+  margin: 0 0 1em 0;
 }
 .radio-group label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.1em;
+  min-width: 60px;
   margin-bottom: 0;
-  gap: 0.3em;
+  font-size: 1.1em;
+  gap: 0.2em;
 }
 .radio-group input[type="radio"] {
-  margin: 0 auto;
-  transform: scale(1.2);
+  margin: 0.2em auto;
   display: block;
 }
 @media (max-width: 600px) {
   .radio-group {
     flex-direction: row;
     justify-content: center;
-    gap: 2.5em;
-    align-items: center;
+    gap: 1.2em;
   }
   .radio-group label {
-    font-size: 1.1em;
-    gap: 0.3em;
-  }
-  .radio-group input[type="radio"] {
-    transform: scale(1.2);
+    font-size: 1em;
+    gap: 0.15em;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 500px), (max-width: 600px) and (orientation: portrait) {
   .radio-group {
-    display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 2.5em;
-    align-items: flex-start;
-    margin-bottom: 1em;
+    gap: 0.7em;
   }
   .radio-group label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.1em;
-    margin-bottom: 0;
-    gap: 0.3em;
-  }
-  .radio-group input[type="radio"] {
-    margin: 0 auto;
-    transform: scale(1.2);
-    display: block;
+    font-size: 0.98em;
+    gap: 0.1em;
   }
 }
-
-@media (min-width: 1200px) {
-  .branches-grid {
-    flex-wrap: wrap;
-    overflow: visible !important;
-    max-width: 100vw;
-    padding-right: 0;
-  }
-  #branches .container {
-    overflow: visible !important;
-    max-width: 1200px;
-    padding-right: 0;
-  }
-}
-@media (max-width: 600px) {
+@media (max-width: 600px) and (orientation: portrait) {
   .radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7em;
-    align-items: flex-start;
-    margin-bottom: 1em;
-  }
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
   .radio-group input[type="radio"] {
     margin-right: 0.5em;
     transform: scale(1.2);
