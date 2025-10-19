@@ -1,4 +1,21 @@
 @media (max-width: 600px) {
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    align-items: flex-start;
+    margin-bottom: 1em;
+  }
+  .radio-group input[type="radio"] {
+    margin-right: 0.5em;
+    transform: scale(1.2);
+  }
+  .radio-group label {
+    font-size: 1.1em;
+    margin-bottom: 0.3em;
+  }
+}
+@media (max-width: 600px) {
   .form-yesno-question, .form-yesno-label, .form-yesno-input {
     display: flex !important;
     flex-direction: column !important;
